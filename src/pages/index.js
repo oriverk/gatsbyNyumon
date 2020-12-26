@@ -7,11 +7,12 @@ import Hero from "../components/hero"
 import PostLink from "../components/post-link"
 
 // import Image from "../components/image"
-// import SEO from "../components/seo"
+import SEO from "../components/seo"
 
 export default function Home({ data }) {
   return (
     <Layout>
+      <SEO />
       <Hero />
       {data.allContentfulPost.edges.map(edge =>
         <PostLink key={edge.node.slug} post={edge.node} />
