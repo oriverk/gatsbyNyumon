@@ -37,6 +37,15 @@ module.exports = {
         spaceId: process.env.GATSBY_CONTENTFUL_SPACE_ID,
         accessToken: process.env.GATSBY_CONTENTFUL_API_KEY
       }
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        commonmark: true,
+        footnotes: true,
+        gfm: true,
+        plugins: [],
+      }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
