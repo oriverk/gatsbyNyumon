@@ -1,22 +1,24 @@
 import React from "react"
 import "../styles/post-link.css"
 
-const RANDOM_IMG = "https://source.unsplash.com/collection/175083/640x360"
+// const RANDOM_IMG = "https://source.unsplash.com/collection/175083/640x360"
 
-export default function PostLink() {
+export default function PostLink({ post }) {
+  const { title, updatedAt, image } = post
+  const description = post.description.description
   return (
     <div className="post-link">
       <div>
         <img
-          src={RANDOM_IMG}
+          src={image.file.url}
           className="post-link-image"
           alt="post-cover"
         ></img>
       </div>
       <div className="post-link-text">
-        <h2>I created a blog with Gatsby.</h2>
-        <p className="post-link-body">React製FWのGatsbyを学んでみました。</p>
-        <p className="post-link-date">2020年5月30日</p>
+        <h2>{title}</h2>
+        <p className="post-link-body">{description}</p>
+        <p className="post-link-date">{updatedAt}</p>
       </div>
     </div>
   )
