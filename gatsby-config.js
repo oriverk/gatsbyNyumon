@@ -44,9 +44,46 @@ module.exports = {
         commonmark: true,
         footnotes: true,
         gfm: true,
-        plugins: [],
+        plugins: [
+          {
+            resolve: 'gatsby-remark-code-titles',
+            options: {}
+          },
+          `gatsby-remark-autolink-headers`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+              linkImagesToOriginal: true,
+            },
+          },
+          {
+            resolve: `gatsby-remark-shiki`,
+            options: {
+              theme: 'github-dark', // Default: 'nord'
+            },
+          },
+        ],
+      }
+    },
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://gatsby-nyumon.netlify.app/',
+        sitemap: 'https://gatsby-nyumon.netlify.app/sitemap.xml',
+        env: {
+          development: {
+            policy: [{ userAgent: '*', disallow: ['/'] }]
+          },
+          production: {
+            policy: [{ userAgent: '*', allow: '/' }]
+          }
+        }
       }
     }
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

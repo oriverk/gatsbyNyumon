@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/post.css'
+import '../styles/post-code.css'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
